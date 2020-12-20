@@ -1,0 +1,10 @@
+[Unit]
+Description=Actuators service
+PartOf=evolutek.target
+
+[Service]
+ExecStart=actuators
+CPUSchedulingPolicy=rr
+
+[Install]
+WantedBy=multi-user.target

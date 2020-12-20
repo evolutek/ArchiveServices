@@ -1,0 +1,10 @@
+[Unit]
+Description=AX 12 service
+PartOf=evolutek.target
+
+[Service]
+ExecStart=ax
+CPUSchedulingPolicy=rr
+
+[Install]
+WantedBy=multi-user.target
