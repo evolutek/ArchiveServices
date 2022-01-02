@@ -1,0 +1,14 @@
+[Unit]
+Description=Config service
+PartOf=evolutek.target
+Requires=cellaserv.service
+After=cellaserv.service
+
+[Service]
+Environment=CONFIG_FILE=/etc/conf.d/config.ini
+ExecStart=config
+CPUSchedulingPolicy=rr
+
+[Install]
+WantedBy=multi-user.target
+
