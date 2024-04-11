@@ -1,0 +1,100 @@
+{
+  "goals": [
+    {
+      "name": "a",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "b",
+      "position": {
+        "x": 0,
+        "y": 500
+      },
+      "score": 42,
+      "theta": "pi",
+      "actions": [
+        {
+          "fct": "sleep"
+        },
+        {
+          "fct": "test",
+          "handler": "test",
+          "args": {
+            "x": 1000,
+            "y": 1000,
+            "theta": "-3*pi/4"
+          },
+          "avoid": false,
+          "avoid_strategy": "AvoidStrategy.Timeout",
+          "score": 21,
+          "timeout": 42
+        }
+      ],
+      "secondary_goal": "secondary",
+      "obstacles": ["lol1", "lol2"],
+      "timeout": 42
+    },
+    {
+      "name": "secondary",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "strategies": [
+    {
+      "name": "A",
+      "starting_position": "pal",
+      "goals": [
+        "a",
+        "b"
+      ],
+      "available": [
+        "pal",
+        "pmi"
+      ],
+      "use_pathfinding": false
+    },
+    {
+      "name": "B",
+      "starting_position": "pmi",
+      "goals": [
+        "b",
+        "a"
+      ],
+      "available": [
+        "pmi"
+      ]
+    }
+  ],
+  "starting_positions": [
+    {
+      "name": "pal",
+      "position": {
+        "x": 1000,
+        "y": 500
+      },
+      "theta": "pi",
+      "recal_size": "x",
+      "recal_sensor": "right"
+    },
+    {
+      "name": "pal",
+      "position": {
+        "x": 1500,
+        "y": 500
+      },
+      "theta": "pi/2",
+      "recal_size": "y",
+      "recal_sensor": "left"
+    }
+  ],
+  "critical_goal": {
+    "goal": "secondary",
+    "timeout": 1024
+  }
+}
